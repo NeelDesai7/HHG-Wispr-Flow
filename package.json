@@ -1,0 +1,16 @@
+{
+  "name": "vachan",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Listens on-device, turns what you promise into scheduled tasks. Local Gemma 4 via Ollama; nothing leaves this computer.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server.js",
+    "dev": "node --watch --disable-warning=ExperimentalWarning server.js",
+    "test": "node --disable-warning=ExperimentalWarning --test"
+  },
+  "engines": {
+    "node": ">=22.13"
+  }
+}

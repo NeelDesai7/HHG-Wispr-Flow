@@ -1,0 +1,59 @@
+{
+  "name": "vachan-desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Vachan as a background tray app: launches at login, listens on-device all the time, turns what you say into scheduled tasks. Nothing leaves this computer.",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "33.2.1",
+    "electron-builder": "25.1.8"
+  },
+  "build": {
+    "appId": "com.vachan.desktop",
+    "productName": "Vachan",
+    "files": [
+      "main.cjs",
+      "tray.png"
+    ],
+    "extraResources": [
+      {
+        "from": "../",
+        "to": "vachan",
+        "filter": [
+          "**/*",
+          "!desktop",
+          "!desktop/**",
+          "!.git",
+          "!.git/**",
+          "!.claude/**",
+          "!data",
+          "!data/**",
+          "!node_modules/**",
+          "!test",
+          "!test/**",
+          "!**/*.test.js",
+          "!**/vendor/whisper/_dl/**",
+          "!**/*.bak-*"
+        ]
+      },
+      {
+        "from": "C:/Program Files/nodejs/node.exe",
+        "to": "node.exe"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "runAfterFinish": true
+    }
+  }
+}
